@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ckeditor',
+    'rest_framework',
     'faqs',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -129,11 +131,19 @@ CACHES = {
         'BACKEND': 'django_redis.cache.RedisCache',
         'LOCATION': 'redis://127.0.0.1:6379/1',  # This assumes Redis is installed locally
         'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         },
     }
 }
 
+CKEDITOR_UPLOAD_PATH = "uploads/"  # Directory to store uploaded files
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Full',  # Toolbar configuration
+        'width': 'auto',
+        'height': 300,
+    },
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
